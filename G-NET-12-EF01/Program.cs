@@ -2,9 +2,14 @@
 {
     internal class Program
     {
-        static void Main(string[] args)
+
+        static void Main()
         {
-            Console.WriteLine("Hello, World!");
+            using (var context = new AppDbContext())
+            {
+                context.Database.EnsureCreated();
+                Console.WriteLine("Database Created Successfully!");
+            }
         }
     }
 }
